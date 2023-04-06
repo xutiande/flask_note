@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+
+{% block title %}首页{% endblock %}
+
+
+{% block body %}
+    <style>
+        *{
+            padding-left: 0;
+        }
+        .title-bar-li{
+
+            background-color: #f8f9fa!important;
+        }
+        .title-bar-li li{
+            display: inline-block;
+            border: none;
+            margin-right: 80px;
+            font-weight: bold;
+
+
+        }
+        .question-main{
+
+            margin-left: 0;
+            float: left;
+            width: 920px;
+        }
+        .question-ul li{
+            padding: 0;
+            margin-top: 12px;
+        }
+
+        .question-main li div{
+            margin-right: 90px;
+        }
+        .question:nth-child(2){
+
+        }
+        .add{
+             margin-left: 95px;
+            margin-top: 20px;
+        }
+        .add h1{
+
+		    font-weight:400;
+        }
+        .add h4{
+
+        }
+    </style>
+
+    <div class="add">
+    <h1 style="display: inline-block" >控制台 </h1> <span>欢迎 {{ g.user.username }}</span><br>
+        <a href="{{ url_for("qa.note_content") }}"><input type="button" class="btn btn-primary" style="font-size: 8px"  value="添加笔记"></a>
+    </div>
+
+    <div class="row" style="margin-top: 20px;">
+
+            <div class="col"></div>
+
+            <div class="col-10">
+                <div class="title-bar">
+                    <ul class="title-bar-li">
+                        <li>ID</li>
+                        <li style="padding-right:152px ">标题</li>
+                        <li style="padding-right: 70px">作者</li>
+                        <li>日期</li>
+                    </ul>
+                </div>
+                <ul class="question-ul">
+                    {% for articles in article %}
+                        <div class="question-main">
+                            <li>
+                                <div class="question"  style="width: 10px">{{ articles.id }}</div>
+    {#                            a标签带参数qa_id跳转到详情页#}
+                                <div class="question"  style="width: 162px ;"><a href="{{ url_for("qa.qa_detail",qa_id=articles.id) }}">{{ articles.title }}</a></div>
+                                <div class="question" style="width: 80px">{{ articles.author }}</div>
+                                <div class="question">{{ articles.create_date }}</div>
+                                <a href="{{ url_for("qa.revise_note",qa_id=articles.id) }}"><input type="button" value="编辑" class="btn btn-info" name="edit"></a>
+                                <a href="{{ url_for("qa.del_note",qa_id=articles.id) }}"><input type="button" value="删除" name="delete" class="btn btn-danger"></a>
+
+                            </li>
+                        </div>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="col"></div>
+        </div>
+{% endblock %}

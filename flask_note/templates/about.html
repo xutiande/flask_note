@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block title %}关于{% endblock %}
+
+{% block body %}
+    <h3>项目大概思路:</h3>
+    <h4>
+        1.手动添加静态文件bootstrap(有非常多的css样式)到static目录 <br>
+        2.settings.py文件作为项目配置文件,在里面配置mysql数据库,配置完在app.py文件与其进行绑定关系<br>
+        3.app.py作为整个项目的父入口文件，子入口文件汇总在父入口文件<br>
+        4.exts.py 可以理解为中间件，目的是解决循环引用<br>
+        5.models.py 模型文件，成功连接数据库，在此创建数据库表。<br>
+        6.在app.py中添加migrate=Migrate(app,db)创建迁移对象<br>
+            利用ORM模型映射到数据库表三步：<br>
+                                      1、flask db init 只运行一次，初始化成类似一个仓库<br>
+                                      2、flask db migrate   识别ORM模型改变，生成迁移脚本，类似于django的     python manage.py makemigrations<br>
+                                      3、flask db upgrade   运行迁移脚本，同步到数据表 ，类似于djangod        python manage.py migrate<br>
+
+        7.创建python包文件夹，放置多个子入口文件以及表单验证<br>
+        8.首先在auth.py文件中创建register注册函数，在创建login登录函数，最后创建用于退出登录的函数logout<br>
+            创建完login函数后，需要进行设置cookie才能登录，在config文件设置   SECRET_KEY='dasdafoafo;fasfsa'<br>
+        9.在qa.py文件创建发布笔记函数，GET请求则返回模板，POST请求则提交至数据库<br>
+        10.ducorators.py 为装饰器。闭包是一个函数嵌套一个函数，并引用外部函数变量，装饰器就是一个闭包，不更改函数的代码的前提下给函数增加新的功能。
+            1，代码中的装饰器的作用是判断是否有g.user((用户id)该函数来着app.py文件中的钩子函数my_before_request())登录信息,有则正常执行调用装饰器的函数，没有则跳转到登录页面进行登录
+            2，用到装饰器的地方会传递当前函数过去，作为装饰器的参数。<br>
+    </h4>
+{% endblock %}

@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}修改笔记{% endblock %}
+
+{% block head %}{% endblock %}
+
+{% block body %}
+    <style>
+    .col-10{
+        margin-left: 60px;
+    }
+    .form-group{
+        width: 100%;
+        margin-top: 8px;
+    }
+
+    </style>
+    <div class="row" style="margin-top: 20px;">
+
+            <div class="col-10">
+                <h1 style="text-align: left; color:rgba(0,0,0,.5);font-size: 30px">修改笔记</h1>
+                <form action="  " method="post">
+                    <div class="form-group" >
+                        <label >标题</label>
+                        <input type="text" name="title" class="form-control" placeholder="请输入修改后标题">
+                    </div>
+                    <div class="form-group">
+                        <label>内容</label>
+                        <textarea name="content" class="form-control" rows="10" placeholder="请输入修改后内容"></textarea>
+                    </div>
+                    <div class="form-group" style="text-align: left;">
+                        <button class="btn btn-primary" >提交修改</button>
+                    </div>
+                </form>
+            </div>
+            <div class="col"></div>
+        </div>
+{% endblock %}

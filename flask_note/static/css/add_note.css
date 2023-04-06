@@ -1,0 +1,32 @@
+        *{
+            padding-left: 0;
+        }
+        .title-bar-li{
+
+            background-color: #f8f9fa!important;
+        }
+        .title-bar-li li{
+            display: inline-block;
+            border: none;
+            margin-right: 80px;
+            font-weight: bold;
+
+
+        }
+        .question-main{
+
+            margin-left: 0;
+            float: left;
+            width: 920px;
+        }
+        .question-ul li{
+            padding: 0;
+            margin-top: 12px;
+        }
+
+        .question-main li div{
+            margin-right: 90px;
+        }
+        .question:nth-child(2){
+
+        }

@@ -1,0 +1,31 @@
+
+.content{
+    margin: 0 auto;
+    width: 300px;
+
+}
+.form-group{
+    width: 300px;
+    float: left;
+
+}
+.title-center{
+    margin-top: 50px;
+    text-align: center;
+    font-size: 25px;
+}
+.mistake{
+    float: right;
+}
+
+.nav-link{
+    font-size: 13px;
+}
+
+.navbar-brand{
+    font-size: 20px;
+    color: rgba(0,0,0,0.9);
+}
+.navbar-nav{
+    margin-right: 50px;
+}

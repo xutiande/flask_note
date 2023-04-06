@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ question.title }}{% endblock %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for("static",filename='css/detail.css') }}">
+{% endblock %}
+
+{% block body %}
+  <div class="row" style="margin-top: 20px;">
+    <div class="col"></div>
+    <div class="col-10" style="background-color: #fff;padding: 20px;">
+      <h3 class="page-title">{{ question.title }}</h3>
+      <i><p class="question-info">
+        <span>作者：{{ question.author }}</span>
+        <span>时间：{{question.create_date }}</span>
+      </p></i>
+        <br>
+        <hr>
+      <p class="question-content">内容: <br> {{question.content }}</p>
+      <hr>
+    </div>
+    <div class="col"></div>
+  </div>
+{% endblock %}

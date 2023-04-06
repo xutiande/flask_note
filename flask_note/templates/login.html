@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block body %}
+    <div class="content">
+        <div class="study"><h3 style="color: rgba(0,0,0,0.3);font-size: 18px;margin-top: 20px">学习笔记</h3></div>
+        <h1 class="title-center">用户登录</h1>
+        <form action="" method="POST" >
+            <div class="form-group">
+                <label>用户名</label>
+                <input type="text" name="username" id="ipt" class="form-control" />
+                <p class="message"></p>
+            </div>
+            <div class="form-group">
+                <label>密码</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1"  />
+
+            </div>
+            <button type="submit" class="btn btn-primary" id="login">登录</button>
+            <p style="margin-top: 20px">{{ mistake }}</p>
+        </form>
+    </div>
+<style>
+    .wrong {
+        color: red;
+    }
+
+    .right {
+        color: green;
+    }
+
+</style>
+    <script>
+        // 1.获取元素
+        var ipt = document.querySelector('#ipt');
+        var message = document.querySelector('.message');
+        //2. 注册事件 失去焦点
+        ipt.onblur = function() {
+            // 根据表单里面值的长度 ipt.value.length
+            if (this.value.length < 6 || this.value.length > 16) {
+                message.className = 'message wrong';
+                message.innerHTML = '请输入正确格式';
+            } else {
+                message.className = 'message right';
+                message.innerHTML = '格式正确';
+            }
+        }
+    </script>
+
+{% endblock %}
